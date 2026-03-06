@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Our Memories ❤️</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.memories-title{
+font-size:40px;
+margin-bottom:40px;
+text-align:center;
+}
+
+/* gallery layout */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+width:80%;
+max-width:900px;
+margin:auto;
+}
+
+/* center last 2 photos */
+.gallery img:nth-child(4){
+grid-column:1 / 2;
+}
+
+.gallery img:nth-child(5){
+grid-column:3 / 4;
+}
+
+.memory-photo{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+transition:0.4s;
+}
+
+.memory-photo:hover{
+transform:scale(1.08);
+}
+
+.next-btn{
+position:fixed;
+bottom:30px;
+right:30px;
+background:white;
+color:#ff4d6d;
+border:none;
+padding:12px 25px;
+border-radius:25px;
+font-size:18px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1 class="memories-title">Our Beautiful Memories ❤️</h1>
+
+<div class="gallery">
+
+<img src="p1.jpg" class="memory-photo">
+<img src="p2.jpg" class="memory-photo">
+<img src="p5.jpg" class="memory-photo">
+
+</div>
+
+<button class="next-btn" onclick="nextPage()">Next →</button>
+
+<audio autoplay loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+function nextPage(){
+window.location.href="letter.html";
+}
+
+</script>
+
+</body>
+</html>

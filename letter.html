@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Letter</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Click the envelope 💌</h1>
+
+<div class="envelope" onclick="openLetter()" id="env">
+
+<div class="flap"></div>
+
+<div class="letter">
+
+<p id="text"></p>
+
+<h2 id="loveMessage">I Love You ❤️</h2>
+
+<button id="kissBtn" onclick="sendKiss()">Send me a kiss 💋</button>
+
+</div>
+
+</div>
+
+<script>
+
+const message = `Dear Love,
+
+From the moment you entered my life, everything became brighter.
+No matter how far we are, you are always in my heart.
+
+Thank you for being the most beautiful part of my life.
+
+Forever yours,
+Parambrata ❤️`;
+
+let i = 0;
+
+function typeWriter(){
+
+if(i < message.length){
+
+let char = message.charAt(i);
+
+if(char === "\n"){
+document.getElementById("text").innerHTML += "<br>";
+}else{
+document.getElementById("text").innerHTML += char;
+}
+
+i++;
+
+setTimeout(typeWriter,40);
+
+}else{
+
+document.getElementById("loveMessage").style.opacity="1";
+document.getElementById("kissBtn").style.opacity="1";
+
+}
+
+}
+
+function openLetter(){
+
+document.getElementById("env").classList.add("open");
+
+/* HEART BURST */
+
+for(let i=0;i<25;i++){
+
+let heart = document.createElement("div");
+heart.className="explode-heart";
+heart.innerHTML="❤️";
+
+let x = (Math.random()*400 - 200) + "px";
+let y = (Math.random()*400 - 200) + "px";
+
+heart.style.setProperty("--x",x);
+heart.style.setProperty("--y",y);
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},1000);
+
+}
+
+/* start typing */
+
+setTimeout(()=>{
+typeWriter();
+},800);
+
+}
+
+function sendKiss(){
+
+for(let i=0;i<120;i++){
+
+let heart = document.createElement("div");
+
+heart.innerHTML="💋";
+heart.style.position="fixed";
+heart.style.fontSize="28px";
+
+heart.style.left="50%";
+heart.style.top="50%";
+
+let x=(Math.random()*800-400)+"px";
+let y=(Math.random()*800-400)+"px";
+
+heart.style.setProperty("--x",x);
+heart.style.setProperty("--y",y);
+
+heart.style.animation="explode 1.5s ease-out forwards";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},1500);
+
+}
+
+}
+
+
+</script>
+<audio autoplay loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+</body>
+</html>
